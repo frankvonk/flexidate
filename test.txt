@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 Even testen of de git will werken!
-=======
 test 1 
->>>>>>> 32ec59f6e828341980ca8fcb5020e29ccf24a9d6
