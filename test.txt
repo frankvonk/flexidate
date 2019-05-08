@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 Even testen of de git will werken!
+=======
+<<<<<<< HEAD
+Even te--ik heb de text veranderd-- sten of de git will werken!
+Hallo iedereen!
+=======
+>>>>>>> cf87d2708e382f54fae6fd18ba895f84d861490a
 test 1 
