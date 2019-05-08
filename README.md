@@ -1,6 +1,6 @@
-# flexidate
+﻿# flexidate
 Scrum oefening VDAB
-
+kut
 https://scrumserver.tenobe.org/scrum/api/demo/demo.php
 
 product backlog
