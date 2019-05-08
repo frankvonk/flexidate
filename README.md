@@ -41,4 +41,3 @@ planning
  di 14/5 nm: sprint 2 (stand-up-meeting)
  woe 15/5 vm: sprint 2 (stand-up-meeting))
  woe 15/5 nm: sprint review &amp; sprint retrospective
-
