@@ -1,7 +1,7 @@
 const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 let url=rooturl+'/profiel/create.php';
 
-document.getElementById('knop1').addEventListener('click', function (e) {
+document.getElementById('register').addEventListener('click', function (e) {
                let data = {
                    familienaam: document.getElementById('achternaam').value,
                    voornaam: document.getElementById('voornaam').value,
