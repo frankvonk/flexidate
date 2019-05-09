@@ -93,7 +93,7 @@
 						<input type="text" name="beroep" class="beroep" id="beroep" placeholder="Beroep">
 					</div>
 					<div class="form-row">
-						<input type="file" name="foto" class="foto" id="foto" placeholder="Foto">
+						<input type="file" name="foto" id="foto" onchange="test()">
 					</div>
 					<div class="form-checkbox">
 						<label class="container"><p>Ik accepteer de <a href="#" class="text">GebruikersOvereenkomst</a> van deze site.</p>
@@ -102,11 +102,50 @@
 						</label>
 					</div>
 					<div class="form-row-last">
-						<input type="submit" name="register" class="register" value="Ready to mingle!">
+						<input type="submit" name="register" class="register" id="register" value="Ready to mingle!">
 					</div>
 				</div>
 			</form>		
 		</div>
 	</div>
 </body>
+<script>
+var rooturl = "https://scrumserver.tenobe.org/scrum/api";
+
+function test(){
+	var file = document.querySelector('input[type=file]').files[0];
+	var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result)
+  }
+  reader.readAsDataURL(file);
+
+}
+
+document.getElementById('register').addEventListener('click', function (e) {  
+                let naam =  document.getElementById('foto').value; 
+                let afbeelding =  document.getElementById('foto').value; 
+
+                let url=rooturl+'/image/upload.php';
+
+                let data = {
+                    naam:naam,
+                    afbeelding:afbeelding
+                }
+
+                var request = new Request(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: new Headers({
+                        'Content-Type': 'application/json'
+                    })
+                });
+
+                fetch(request)
+                    .then( function (resp)  { return resp.json(); })
+                    .then( function (data)  { console.log(data);  })
+                    .catch(function (error) { console.log(error); });
+            });
+
+</script>
 </html>
