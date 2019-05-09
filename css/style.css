@@ -1,6 +1,11 @@
 body {
 	margin:  0;
 }
+
+body, .page-content {
+      background-image: url("img/pink-and-roses.jpg");
+    }
+    
 .page-content {
 	width: 100%;
 	margin:  0 auto;
