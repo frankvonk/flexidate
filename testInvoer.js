@@ -2,13 +2,23 @@ const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 let url=rooturl+'/profiel/create.php';
 
 document.getElementById('register').addEventListener('click', function (e) {
+
+    var file = document.querySelector('input[type=file]').files[0];
+	var reader = new FileReader();
+  reader.onloadend = function() {
+		console.log('RESULT', reader.result);
+		uploadPicture(reader.result);
+			
+  }
+  reader.readAsDataURL(file);
+
                let data = {
                    familienaam: document.getElementById('achternaam').value,
                    voornaam: document.getElementById('voornaam').value,
                    geboortedatum:document.getElementById('geboortedatum').value,
                    email: document.getElementById('email').value,
                    nickname: document.getElementById('nickname').value,
-                   foto: document.getElementById('foto').value,
+                   foto: 'test.jpg',
                    beroep: document.getElementById('beroep').value,
                    sexe: document.getElementById('geslacht').value,
                    haarkleur: document.getElementById('haarkleur').value,
