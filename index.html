@@ -101,7 +101,7 @@
 						<input type="text" name="beroep" class="beroep" id="beroep" placeholder="Beroep">
 					</div>
 					<div class="form-row">
-						<input type="file" name="foto" id="foto" onchange="test()">
+						<input type="file" name="foto" id="foto">
 					</div>
 					<div class="form-checkbox">
 						<label class="container"><p>Ik accepteer de <a href="#" class="text">GebruikersOvereenkomst</a> van deze site.</p>
@@ -119,79 +119,4 @@
 	<script src="testinvoer.js" charset="utf-8"></script>
 	<script src="inloggen.js" charset="utf-8"></script>
 </body>
-<script>
-
-function test(){
-	var file = document.querySelector('input[type=file]').files[0];
-	var reader = new FileReader();
-  reader.onloadend = function() {
-		console.log('RESULT', reader.result);
-		uploadPicture(reader.result);
-			
-  }
-  reader.readAsDataURL(file);
-}
-function uploadPicture(base64String) {
-            console.log('     • Foto wordt doorgestuurd naar de API.');
-            let naam = 'test.jpg';
-            let afbeelding = base64String;
-
-            let url = 'https://scrumserver.tenobe.org/scrum/api/image/upload.php';
-
-            let data = {
-                naam: naam,
-                afbeelding: afbeelding
-            }
-
-            var request = new Request(url, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                })
-            });
-
-            fetch(request)
-                .then(function (resp) {                     return resp.json(); })
-                .then(function (data) {
-                    console.log('     ==> OK (Foto te vinden op url = ' + data.fileURL + ')');
-                    console.log('     • Foto inladen in IMG');
-                    document.getElementById('uploadResult').src = data.fileURL;
-                    console.log('     ==> OK');
-                    console.log('==> Klaar');
-                })
-                .catch(function (error) { console.log(error); });
-}
-
-
-/*
-document.getElementById('register').addEventListener('click', function (e) {  
-
-	
-	
-                let naam =  document.getElementById('foto').value; 
-                let afbeelding = reader.result;
-
-                let url=rooturl+'/image/upload.php';
-
-                let data = {
-                    naam:naam,
-                    afbeelding:afbeelding,
-                }
-
-                var request = new Request(url, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: new Headers({
-                        'Content-Type': 'application/json'
-                    })
-                });
-
-                fetch(request)
-                    .then( function (resp)  { return resp.json(); })
-                    .then( function (data)  { console.log(data);  })
-                    .catch(function (error) { console.log(error); });
-            });*/
-
-</script>
 </html>
