@@ -1,0 +1,133 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ophalen en verwijderen</title>
+</head>
+<body>
+
+
+<form id="actie">
+
+	<!-- 1 ophalen -->
+	
+	<label for="input_ophalen">1 profiel ophalen</label><br>    
+	<input type="text" id="input_ophalen" /><br>
+	<button type="button" id="knop_ophalen">Ophalen</button><br><br>
+
+	<!-- Verwijderen -->
+	
+	<label for="input_verwijderen">Verwijderen</label><br>
+	<input type="text" id="input_verwijderen" /><br>
+	<button type="button" id="verwijderen">Verwijderen</button><br><br>
+	<button type="button" onclick="fnWissen()">Wissen</button><br>
+</form>	
+
+
+<!-- tonen van 1 profiel -->
+<div id="resultaat">
+	<p id="familienaam"></p>
+	<p id="voornaam"></p>
+	<p id="geboortedatum"></p>
+	<p id="email"></p>
+	<p id="nickname"></p>
+	<p id="foto"></p>
+	<p id="beroep"></p>
+	<p id="sexe"></p>
+	<p id="haarkleur"></p>
+	<p id="oogkleur"></p>
+	<p id="grootte"></p>
+	<p id="gewicht"></p>
+	<p id="wachtwoord"></p>
+	<p id="lovecoins"></p>
+</div>
+
+
+<script>
+
+// Wissen van beide invoervelden
+function fnWissen() {
+  document.getElementById("actie").reset();
+}
+
+var rooturl = "https://scrumserver.tenobe.org/scrum/api";
+
+
+// 1 profiel ophalen
+document.getElementById('knop_ophalen').addEventListener('click', function (e) {                
+	let profielId = document.getElementById('input_ophalen').value;
+
+	let url=rooturl+'/profiel/read_one.php?id='+profielId;
+
+	fetch(url)
+		.then(function (resp)   { return resp.json(); })
+		.then(function (data)   { 
+			console.log(data);		
+			eGegeven = document.getElementById('familienaam');
+			eGegeven.innerHTML = data.familienaam;
+			eGegeven = document.getElementById('voornaam');
+			eGegeven.innerHTML = data.voornaam;
+			eGegeven = document.getElementById('geboortedatum');
+			eGegeven.innerHTML = data.geboortedatum;
+			eGegeven = document.getElementById('email');
+			eGegeven.innerHTML = data.email;
+			eGegeven = document.getElementById('voornaam');
+			eGegeven.innerHTML = data.voornaam;
+			eGegeven = document.getElementById('nickname');
+			eGegeven.innerHTML = data.nickname;
+			eGegeven = document.getElementById('voornaam');
+			eGegeven.innerHTML = data.voornaam;
+			eGegeven = document.getElementById('foto');
+			eGegeven.innerHTML = data.foto;
+			eGegeven = document.getElementById('voornaam');
+			eGegeven.innerHTML = data.voornaam;
+			eGegeven = document.getElementById('beroep');
+			eGegeven.innerHTML = data.beroep;
+			eGegeven = document.getElementById('sexe');
+			eGegeven.innerHTML = data.sexe;
+			eGegeven = document.getElementById('haarkleur');
+			eGegeven.innerHTML = data.haarkleur;
+			eGegeven = document.getElementById('oogkleur');
+			eGegeven.innerHTML = data.oogkleur;
+			eGegeven = document.getElementById('grootte');
+			eGegeven.innerHTML = data.grootte;
+			eGegeven = document.getElementById('gewicht');
+			eGegeven.innerHTML = data.gewicht;
+			eGegeven = document.getElementById('wachtwoord');
+			eGegeven.innerHTML = data.wachtwoord;
+			eGegeven = document.getElementById('lovecoins');
+			eGegeven.innerHTML = data.lovecoins;
+  })
+		.catch(function (error) { console.log(error); });
+
+});
+
+
+// een profiel verwijderen
+document.getElementById('verwijderen').addEventListener('click', function (e) {  
+	let profielId =  document.getElementById('input_verwijderen').value;
+
+	let url=rooturl+'/profiel/delete.php';
+
+	let data = {
+		id: profielId
+	}
+
+	var request = new Request(url, {
+		method: 'DELETE',
+		body: JSON.stringify(data),
+		headers: new Headers({
+			'Content-Type': 'application/json'
+		})
+	});
+	
+	fetch(request)
+		.then( function (resp)  { return resp.json(); })
+		.then( function (data)  { console.log(data);  })
+		.catch(function (error) { console.log(error); });
+});
+
+</script>
+
+</body>
+</html> 
