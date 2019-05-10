@@ -1,7 +1,8 @@
 
 function uploadPicture(base64String) {
     console.log('     • Foto wordt doorgestuurd naar de API.');
-    let naam = 'foto.png';
+    let foto = document.getElementById('foto').value;
+    let naam = foto.slice(12);
     let afbeelding = base64String;
 
     let url = 'https://scrumserver.tenobe.org/scrum/api/image/upload.php';
@@ -40,6 +41,7 @@ document.getElementById('register').addEventListener('click', function (e) {
 		uploadPicture(reader.result);
   }
   reader.readAsDataURL(file);
+  
 
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
@@ -59,13 +61,15 @@ document.getElementById('register').addEventListener('click', function (e) {
     }
   console.log(charGeslacht);
   console.log(typeof charGeslacht);
+  let foto = document.getElementById('foto').value;
+  let splice = foto.slice(12);
         let data = {
             familienaam: document.getElementById('achternaam').value,
             voornaam: document.getElementById('voornaam').value,
             geboortedatum:document.getElementById('geboortedatum').value,
             email: document.getElementById('email').value,
             nickname: document.getElementById('nickname').value,
-            foto: "no_picture.jpg",
+            foto: splice,
             beroep: document.getElementById('beroep').value,
             sexe: charGeslacht,
             haarkleur: document.getElementById('haarkleur').value,
