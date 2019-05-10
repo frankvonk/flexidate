@@ -10,7 +10,7 @@ function getUrlParam(param)
   var match = regex.exec(url);
   return match ? match[1] : "";
 }
-let booleaninlog = false;
+let booleaninlog = true;
 var nickname = getUrlParam("aanmeldnaam");
 var wachtwoord = getUrlParam('wachtwoordinv');
 
