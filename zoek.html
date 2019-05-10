@@ -65,5 +65,49 @@
      -->
   </div>
 </nav>
+
+
+<!-- BEGIN PAGE -->
+
+<!-- zoeken op geslacht -->
+<label for="zoekknop" class="api_demo_lbl">geslacht :            </label>   
+  <select id="input" class="api_demo_param_chb">
+    <option value="%" selected="">alle geslachten</option>
+    <option>v</option>
+    <option>m</option>
+    <option>x</option>
+    <option>%</option>
+  </select>
+<button type="button" id="zoekknop">Zoeken</button>
+
+<br><br>
+<div id="resultaat">
+</div>
+
+<script>
+let eResultaat = document.getElementById('resultaat');
+var rooturl = "https://scrumserver.tenobe.org/scrum/api";
+
+document.getElementById('zoekknop').addEventListener('click', function (e) {
+      let geslacht  =  document.getElementById('input').value;
+      let url= rooturl+'/profiel/search.php?sexe='+geslacht;
+
+      fetch(url)
+      .then(function (resp)   { return resp.json(); })
+      .then(function (data)   { 
+          console.log(data);  
+              eResultaat.innerHTML = "";
+          // loop met het resultraat
+          for(i=0;i<data.length;i++){
+
+              eResultaat.innerHTML += data[i].nickname; // alleen nicknames worden getoond
+              eResultaat.innerHTML += "<br>"
+          }
+      })
+      .catch(function (error) { console.log(error); });
+}); // EINDE ZOEKKNOP LISTENER
+
+</script>
+
 </body>
 </html>
