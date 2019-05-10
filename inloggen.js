@@ -10,7 +10,7 @@ function getUrlParam(param)
   var match = regex.exec(url);
   return match ? match[1] : "";
 }
-let booleaninlog = false;
+let booleaninlog = true;
 var nickname = getUrlParam("aanmeldnaam");
 var wachtwoord = getUrlParam('wachtwoordinv');
 
@@ -52,10 +52,10 @@ document.head.appendChild(eRedirect);
         fetch(url)
             .then(function (resp)   { return resp.json(); })
             .then(function (data)   {
-//           console.log(data); 
-        //    console.log(data[1])   
-            
-            
+//           console.log(data);
+        //    console.log(data[1])
+
+
        for(i=0; i<data.length; i++){
         if (data[i].nickname == nickname && data[i].wachtwoord == wachtwoord)  {
           id = data[i];
@@ -130,11 +130,9 @@ document.head.appendChild(eRedirect);
       booleaninlog = true;
      } // end if found
 
-booleaninlog = false;
+       } // end forloop 5000x
 
-       } // end forloop 5000x    
-            
-            
+
 if(booleaninlog == false){
   let eMessage = document.getElementById('message');
   eMessage.innerHTML = "verkeerd wachtwoord"
@@ -142,16 +140,16 @@ if(booleaninlog == false){
   link.setAttribute("href", "index.html")
   let tnlink = document.createTextNode(' Probeer het nog eens!');
   link.appendChild(tnlink)
-  eMessage.appendChild(link); 
+  eMessage.appendChild(link);
 
-}            
-            
+}
+
              })
-  
 
-          
+
+
             .catch(function (error) { console.log(error); });
- 
+
 
 //  console.log("type"+typeof(nickname));
 //  console.log(nickname);
