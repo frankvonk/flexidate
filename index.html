@@ -29,46 +29,50 @@
 	<div class="page-content">
 		<div class="form-v10-content">
 
-			<form class="form-detail" action="#" method="post">
+			<form class="form-detail" action="profiel.html" method="GET">
 				<div class="form-left">
 
 					<h2>Inloggen</h2>
 
 						<div class="form-row">
-							<input type="text" name="aanmeldnaam" class="aanmeldnaam" id="aanmeldnaam" placeholder="nickname" >
+							<input type="text" name="aanmeldnaam" class="aanmeldnaam" id="aanmeldnaam" placeholder="nickname" required>
 						</div>
 						<div class="form-row">
-							<input type="text" name="wachtwoordinv" class="wachtwoordinv" id="wachtwoordinv" placeholder="wachtwoord" >
+							<input type="text" name="wachtwoordinv" class="wachtwoordinv" id="wachtwoordinv" placeholder="wachtwoord" required>
 						</div>
 						<div class="form-row-last">
-							<input type="submit" name="register" class="register" value="Aanmelden" >
-							</div>
+							<input type="submit" name="register" class="register"  value="Aanmelden" >
 						</div>
-					</form>
+						</div>
+	  	</form>
+
+
+
+
 
 			<form class="form-detail" action="#" method="post">
 				<div class="form-right">
 					<h2> Inschrijven</h2>
 					<div class="form-row">
-						<input type="text" name="nickname" class="nickname" id="nickname" placeholder="Nickname" >
+						<input type="text" name="nickname" class="nickname" id="nickname" placeholder="Nickname" required>
 					</div>
 					<div class="form-row">
-						<input type="email" name="email" class="email" id="email" placeholder="Email" >
+						<input type="email" name="email" class="email" id="email" placeholder="Email" required>
 					</div>
 					<div class="form-row">
-						<input type="password" name="wachtwoord" class="wachtwoord" id="wachtwoord" placeholder="Wachtwoord" >
+						<input type="password" name="wachtwoord" class="wachtwoord" id="wachtwoord" placeholder="Wachtwoord" required>
 					</div>
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<input type="text" name="voornaam" id="voornaam" class="input-text" placeholder="Voornaam" >
+							<input type="text" name="voornaam" id="voornaam" class="input-text" placeholder="Voornaam" required>
 						</div>
 						<div class="form-row form-row-2">
-							<input type="text" name="achternaam" id="achternaam" class="input-text" placeholder="Achternaam" >
+							<input type="text" name="achternaam" id="achternaam" class="input-text" placeholder="Achternaam" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<input type="date" name="geboortedatum" id="geboortedatum" class="input-text" >
+							<input type="date" name="geboortedatum" id="geboortedatum" class="input-text" required>
 						</div>
 
 						<div class="form-row form-row-2">
@@ -82,26 +86,26 @@
 
 				<div class="form-group">
 					<div class="form-row form-row-1">
-						<input type="text" name="gewicht" class="gewicht" id="gewicht" placeholder="Gewicht" >
+						<input type="text" name="gewicht" class="gewicht" id="gewicht" placeholder="Gewicht" required>
 					</div>
 					<div class="form-row form-row-2">
-						<input type="text" name="grootte" class="grootte" id="grootte" placeholder="Grootte" >
+						<input type="text" name="grootte" class="grootte" id="grootte" placeholder="Grootte" required>
 					</div>
 				</div>
 
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<input type="text" name="haarkleur" class="haarkleur" id="haarkleur" placeholder="Haarkleur" >
+							<input type="text" name="haarkleur" class="haarkleur" id="haarkleur" placeholder="Haarkleur" required>
 						</div>
 						<div class="form-row form-row-2">
-							<input type="text" name="Oogkleur" class="oogkleur" id="oogkleur" placeholder="Oogkleur" >
+							<input type="text" name="Oogkleur" class="oogkleur" id="oogkleur" placeholder="Oogkleur" required>
 						</div>
 					</div>
 					<div class="form-row">
 						<input type="text" name="beroep" class="beroep" id="beroep" placeholder="Beroep">
 					</div>
 					<div class="form-row">
-						<input type="file" name="foto" id="foto">
+						<input type="file" name="foto" class="foto" id="foto" placeholder="Foto">
 					</div>
 					<div class="form-checkbox">
 						<label class="container"><p>Ik accepteer de <a href="#" class="text">GebruikersOvereenkomst</a> van deze site.</p>
@@ -116,7 +120,6 @@
 			</form>
 		</div>
 	</div>
-	<script src="testInvoer.js" charset="utf-8"></script>
-	<script src="inloggen.js" charset="utf-8"></script>
+	<script src="testinvoer.js" charset="utf-8"></script>
 </body>
 </html>
