@@ -34,6 +34,7 @@
 		/*color: #4815d4;*/
 		color: white;
       text-shadow: 1px 1px pink;
+      margin-left: 10px;
 	}
 	p{
 		color: white;
@@ -41,6 +42,15 @@
 	table{
 		background-color:  #4815d4;
 		border-radius: 25px;
+		width: 33%;
+		margin: 0 auto;
+		padding: 15px;
+
+		
+	}
+
+	tr{
+		border-bottom: 1px dashed rgba(200,250,250,0.5);
 	}
    
 
@@ -82,12 +92,14 @@
 <!-- tonen van 1 profiel -->
 <div id="resultaat">
 	<table>
+		<tr><td colspan="2"><img id="foto"></td></tr>
+
 		<tr><td><h5>Familienaam:</h5></td><td><p id="familienaam"></p></td></tr>
 		<tr><td><h5>Voornaam:</h5></td><td><p id="voornaam"></p></td></tr>
 		<tr><td><h5>Geboortedatum: </h5></td><td><p id="geboortedatum"></p></td></tr>
 		<tr><td><h5>Email: </h5></td><td><p id="email"></p></td></tr>
 		<tr><td><h5>Nickname: </h5></td><td><p id="nickname"></p></td></tr>
-		<tr><td><h5>Foto: </h5></td><td><p id="foto"></p></td></tr>
+		
 		<tr><td><h5>Beroep: </h5></td><td><p id="beroep"></p></td></tr>
 		<tr><td><h5>Haarkleur: </h5></td><td><p id="haarkleur"></p></td></tr>
 		<tr><td><h5>Oogkleur: </h5></td><td><p id="oogkleur"></p></td></tr>

@@ -3,6 +3,7 @@ let profielId = localStorage.getItem('profielId');
 console.log(profielId);
 
 let url=' https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id='+profielId;
+let fotoUrl = "https://scrumserver.tenobe.org/scrum/img/";
 
 fetch(url)
 .then(function (resp)   { return resp.json(); })
@@ -18,7 +19,7 @@ fetch(url)
   eGegeven = document.getElementById('nickname');
   eGegeven.innerHTML = data.nickname;
   eGegeven = document.getElementById('foto');
-  eGegeven.innerHTML = data.foto;
+  eGegeven.setAttribute("src",fotoUrl);
   eGegeven = document.getElementById('beroep');
   eGegeven.innerHTML = data.beroep;
   eGegeven = document.getElementById('haarkleur');
