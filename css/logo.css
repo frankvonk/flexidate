@@ -1,0 +1,22 @@
+.logo{
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: -20px;
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 50px;
+	/*float: center;*/
+	text-align: center;
+	text-decoration: underline;
+	
+}
+
+.logo .uno{
+	color: #4835d4;
+	text-shadow: 2px 2px pink;
+}
+
+.logo .dos{
+	color: pink;
+	text-shadow: 2px 2px #4835d4;
+}
