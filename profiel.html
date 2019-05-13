@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,25 +7,48 @@
 
 
 <!-- BOET STREP -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha184-ggOyR0iXCbMQv1Xipma14MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha184-JjSmVgyd0p1pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" integrity="sha184-xrRywqdh1PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn1czEjhAO9o" crossorigin="anonymous"></script>
+   <link
    <link rel="stylesheet" type="text/css" href="css/navstyle.css">
    <link rel="stylesheet" type="text/css" href="css/profiel.css">
 
    <style>
 
     nav{
-      background-color: #4835d4;
+      background-color: #4815d4;
       border-bottom: 2px solid pink;
 
     }
+
+	body{
+		background-image: url("img/pink-and-roses.jpg");
+		background-repeat: no-repeat;
+      background-position: fixed;
+      background-size: cover;
+
+	}
+	h5{
+		/*color: #4815d4;*/
+		color: white;
+      text-shadow: 1px 1px pink;
+	}
+	p{
+		color: white;
+	}
+	table{
+		background-color:  #4815d4;
+		border-radius: 25px;
+	}
+
 
 </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-dark" >
+
+ <nav class="navbar navbar-expand-sm navbar-dark" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -33,7 +56,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" data-toggle="dropdown">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="file:///C:/Users/sven.bollaerts/Documents/GitHub/flexidate/index.html"><img src="img/homez.png" width="35px"></a>
+        <a class="nav-link" href="./index.html"><img src="img/homez.png" width="35px"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="./profiel.html">Profiel</a>
@@ -47,50 +70,33 @@
       <li class="nav-item">
         <a class="nav-link" href="./zoek.html">Zoek</a>
       </li>
-      <li class="nav-item nav-right" > <!-- HIDDEN -->
-        <a class="nav-link" href="#">Uitloggen</a>
+      <li class="nav-item nav-right"> <!-- HIDDEN -->
+        <a class="nav-link" href="./index.html" id="logout">Uitloggen</a>
       </li>
     </ul>
-    <!--
-     <form class="form-inline my-2 my-lg-0 bordrrr">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
-      </form>
-     -->
   </div>
-</nav>
-
+  </nav>
 <div id="message">&nbsp</div>
 
 <!-- tonen van 1 profiel -->
 <div id="resultaat">
-	<h3>Familienaam:</h3>
-	<p id="familienaam"></p>
-	<h3>Voornaam:</h3>
-	<p id="voornaam"></p>
-	<h3>geboortedatum: </h3>
-	<p id="geboortedatum"></p>
-	<h3>Email: </h3>
-	<p id="email"></p>
-	<h3>nickname: </h3>
-	<p id="nickname"></p>
-	<h3>Foto: </h3>
-	<p id="foto"></p>
-	<h3>Beroep: </h3>
-	<p id="beroep"></p>
-	<h3>Haarkleur: </h3>
-	<p id="haarkleur"></p>
-	<h3>Oogkleur: </h3>
-	<p id="oogkleur"></p>
-	<h3>Grootte: </h3>
-	<p id="grootte"></p>
-	<h3>Gewicht: </h3>
-	<p id="gewicht"></p>
-	<h3>Wachtwoord: </h3>
-	<p id="wachtwoord"></p>
-	<h3>Lovecoins: </h3>
-	<p id="lovecoins"></p>
+	<table>
+		<tr><td><h5>Familienaam:</h5></td><td><p id="familienaam"></p></td></tr>
+		<tr><td><h5>Voornaam:</h5></td><td><p id="voornaam"></p></td></tr>
+		<tr><td><h5>Geboortedatum: </h5></td><td><p id="geboortedatum"></p></td></tr>
+		<tr><td><h5>Email: </h5></td><td><p id="email"></p></td></tr>
+		<tr><td><h5>Nickname: </h5></td><td><p id="nickname"></p></td></tr>
+		<tr><td><h5>Foto: </h5></td><td><p id="foto"></p></td></tr>
+		<tr><td><h5>Beroep: </h5></td><td><p id="beroep"></p></td></tr>
+		<tr><td><h5>Haarkleur: </h5></td><td><p id="haarkleur"></p></td></tr>
+		<tr><td><h5>Oogkleur: </h5></td><td><p id="oogkleur"></p></td></tr>
+		<tr><td><h5>Grootte: </h5></td><td><p id="grootte"></p></td></tr>
+		<tr><td><h5>Gewicht: </h5></td><td><p id="gewicht"></p></td></tr>
+		<tr><td><h5>Wachtwoord: </h5></td><td><p id="wachtwoord"></p></td></tr>
+		<tr><td><h5>Lovecoins: </h5></td><td><p id="lovecoins"></p></td></tr>
+	</table>
 </div>
 
+<script src="uitloggen.js" charset="utf-8"></script>
 </body>
 </html>
