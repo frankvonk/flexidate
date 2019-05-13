@@ -70,7 +70,7 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
-<label for="zoekknop" class="api_demo_lbl">geslacht :            </label>   
+<label for="zoekknop" class="api_demo_lbl">Geslacht: </label>   
   <select id="input" class="api_demo_param_chb">
     <option value="%" selected="">alle geslachten</option>
     <option>v</option>
@@ -78,6 +78,11 @@
     <option>x</option>
     <option>%</option>
   </select>
+  <formgroup>
+    <legend>Lengte</legend>
+    <label>Min</label><input type="number" id="minGrootte">
+    <label>Max</label><input type="number" id="maxGrootte">
+  </formgroup>
 <button type="button" id="zoekknop">Zoeken</button>
 
 <br><br>
@@ -90,7 +95,11 @@ var rooturl = "https://scrumserver.tenobe.org/scrum/api";
 
 document.getElementById('zoekknop').addEventListener('click', function (e) {
       let geslacht  =  document.getElementById('input').value;
+      let rangeMinGrootte = document.getElementById('minGrootte').value;
+      let rangeMaxGrootte = document.getElementById('maxGrootte').value;
       let url= rooturl+'/profiel/search.php?sexe='+geslacht;
+      url+='&grootteOperator=range&rangeMinGrootte='+ rangeMinGrootte +'&rangeMaxGrootte='+ rangeMaxGrootte;
+
 
       fetch(url)
       .then(function (resp)   { return resp.json(); })
