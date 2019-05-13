@@ -41,7 +41,6 @@ document.getElementById('register').addEventListener('click', function (e) {
 		uploadPicture(reader.result);
   }
   reader.readAsDataURL(file);
-  
 
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
