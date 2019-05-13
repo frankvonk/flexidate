@@ -92,3 +92,10 @@ document.getElementById('register').addEventListener('click', function (e) {
             .catch(function (error) { console.log(error); });
 
         });// Einde knop
+
+//onthullen registratieform
+let onthulKnop = document.getElementById('onthullenRegistreer');
+onthulKnop.addEventListener('click', function(){
+    document.getElementById('hiddenReg').style.display = "block";
+    onthulKnop.style.display = "none";
+});
