@@ -1,0 +1,23 @@
+h5{
+		/*color: #4815d4;*/
+		color: white;
+      text-shadow: 1px 1px pink;
+      margin-left: 10px;
+	}
+	p{
+		color: white;
+	}
+	table{
+		background-color:  #4815d4;
+		border-radius: 25px;
+		width: 66%;
+		margin: 0 auto;
+		padding: 15px;
+
+		
+	}
+
+	tr{
+		border-bottom: 1px dashed rgba(200,250,250,0.5);
+	}
+
