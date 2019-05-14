@@ -235,7 +235,7 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
               eResultaat.innerHTML = "";
           // loop met het resultraat
           for(i=0;i<data.length;i++){
-              eResultaat.innerHTML += data[i].nickname; // alleen nicknames worden getoond
+              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id + "</a>"; // alleen nicknames worden getoond
               eResultaat.innerHTML += "<br>"
           }
       })

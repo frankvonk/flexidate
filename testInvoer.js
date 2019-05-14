@@ -76,7 +76,7 @@ function maakProfiel(splice){
             nickname: document.getElementById('nickname').value,
             foto: splice,
             beroep: document.getElementById('beroep').value,
-            sexe: charGeslacht,
+            sexe: document.getElementById('geslacht').value,
             haarkleur: document.getElementById('haarkleur').value,
             oogkleur: document.getElementById('oogkleur').value,
             grootte: document.getElementById('grootte').value,
