@@ -194,9 +194,7 @@
 
 
 <script>
-let sterrenbeelden = [
-  "nvt", "Steenbok", "Waterman", "Vissen", "Ram", "Stier", "Tweeling", "Kreeft", "Leeuw", "Maagd", "Weegschaal", "Schorpioen", "Boogschutter"
-]
+
 let eResultaat = document.getElementById('resultaat');
 var rooturl = "https://scrumserver.tenobe.org/scrum/api";
 
@@ -224,6 +222,7 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       url+='&oogkleur='+ oogkleur + '&haarkleur=%' + haarkleur + '%&nickname=%'+ nickname + '%';
 
       //url+= '&page='+page+'&pageSize='+pageSize;
+      //bepaalSterrenbeeld(1, 27);
 
                 
 
@@ -236,6 +235,9 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
           // loop met het resultraat
           for(i=0;i<data.length;i++){
               eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id + "</a>"; // alleen nicknames worden getoond
+              let maand = data[i].geboortedatum.slice(6, 7);
+              let dag = data[i].geboortedatum.slice(8, 9);
+              bepaalSterrenbeeld(maand, dag);
               eResultaat.innerHTML += "<br>"
           }
       })
@@ -243,6 +245,17 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
 }); // EINDE ZOEKKNOP LISTENER
 
 function bepaalSterrenbeeld(maand, dag){
+  let sterrenbeelden = [
+  "nvt", ["steenbok", 20], ["waterman",19], ["vissen", 20], ["ram", 20], ["stier", 20], ["tweeling", 21], ["kreeft", 22], ["leeuw", 22], ["maagd", 22], ["weegschaal", 22], ["schorpioen", 21], ["boogschutter", 21]
+  ];
+  let sterrenbeeld;
+
+  if (dag <= sterrenbeelden[maand][1]){
+    sterrenbeeld = sterrenbeelden[maand][0];
+  } else {
+    sterrenbeeld = sterrenbeelden[maand + 1][0];
+  }
+  console.log(sterrenbeeld);
   
 }
 
