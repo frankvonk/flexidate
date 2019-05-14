@@ -109,7 +109,6 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
-
 <table class="tabel">
   <tr>
     <td>
@@ -198,12 +197,14 @@
     </td>
   </tr>
 </table>
+
 <br><br>
 <div id="resultaat">
 </div>
 
 
 <script>
+
 let eResultaat = document.getElementById('resultaat');
 var rooturl = "https://scrumserver.tenobe.org/scrum/api";
 
@@ -218,6 +219,8 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       let oogkleur = document.getElementById('oogkleur').value;
       let haarkleur = document.getElementById('haarkleur').value;
       let nickname = document.getElementById('nicknameSearch').value;
+      //let page=1;
+      //let pageSize=5;
       let url= rooturl+'/profiel/search.php?sexe='+geslacht;
 
       //url GET opbouw
@@ -256,6 +259,22 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       })
       .catch(function (error) { console.log(error); });
 }); // EINDE ZOEKKNOP LISTENER
+
+//functie om sterrenbeeld te bepalen
+function bepaalSterrenbeeld(maand, dag){
+  let sterrenbeelden = [
+  "nvt", ["steenbok", 20], ["waterman",19], ["vissen", 20], ["ram", 20], ["stier", 20], ["tweeling", 21], ["kreeft", 22], ["leeuw", 22], ["maagd", 22], ["weegschaal", 22], ["schorpioen", 21], ["boogschutter", 21]
+  ];
+  let sterrenbeeld;
+
+  if (dag <= sterrenbeelden[maand][1]){
+    sterrenbeeld = sterrenbeelden[maand][0];
+  } else {
+    sterrenbeeld = sterrenbeelden[maand + 1][0];
+  }
+  console.log(sterrenbeeld);
+  
+}
 
 </script>
 
