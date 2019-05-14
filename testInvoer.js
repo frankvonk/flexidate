@@ -28,6 +28,7 @@ function uploadPicture(base64String) {
         .then(function (data) {
             console.log('     ==> OK (Foto te vinden op url = ' + data.fileURL + ')');
             console.log('     • Foto inladen in IMG');
+            maakProfiel(data.fileName);
             //document.getElementById('uploadResult').src = data.fileURL;
             console.log('     ==> OK');
             console.log('==> Klaar');
@@ -45,6 +46,10 @@ document.getElementById('register').addEventListener('click', function (e) {
   }
   reader.readAsDataURL(file);
 
+    
+        });// Einde knop
+
+function maakProfiel(splice){
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
 
@@ -63,8 +68,8 @@ document.getElementById('register').addEventListener('click', function (e) {
     }
   console.log(charGeslacht);
   console.log(typeof charGeslacht);
-  let foto = document.getElementById('foto').value;
-  let splice = foto.slice(12);
+  //let foto = document.getElementById('foto').value;
+  //let splice = foto.slice(12);
         let data = {
             familienaam: document.getElementById('achternaam').value,
             voornaam: document.getElementById('voornaam').value,
@@ -93,7 +98,11 @@ document.getElementById('register').addEventListener('click', function (e) {
             .then( function (data)  { console.log(data);  })
             .catch(function (error) { console.log(error); });
 
-        });// Einde knop
+}
+
+
+
+
 
 //onthullen registratieform
 let onthulKnop = document.getElementById('onthullenRegistreer');
