@@ -13,6 +13,7 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
    <link rel="stylesheet" type="text/css" href="css/navstyle.css">
+   
 </head>
 <style>
     body, .page-content {
@@ -25,8 +26,35 @@
     nav{
       background-color: #4835d4;
       border-bottom: 2px solid pink;
-
+      margin-bottom: 50px;
     }
+
+    h5{
+    /*color: #4815d4;*/
+    color: white;
+      text-shadow: 1px 1px pink;
+      margin-left: 10px;
+  }
+  p{
+    color: white;
+  }
+  table{
+    background-color:  #4815d4;
+    border-radius: 25px;
+    /*width: 50%;*/
+    margin: 0 auto;
+    padding: 15px;
+
+    
+  }
+
+  tr{
+    border-bottom: 1px dashed rgba(200,250,250,0.5);
+  }
+
+  input[type=""]{
+
+  }
 
    
 </style>
@@ -70,54 +98,94 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
-<label for="zoekknop" class="api_demo_lbl">Geslacht: </label>   
-  <select id="input" class="api_demo_param_chb">
-    <option value="%" selected="">alle geslachten</option>
-    <option>v</option>
-    <option>m</option>
-    <option>x</option>
-    <option>%</option>
-  </select>
+<table class="tabel">
+  <tr>
+    <td>
   <!--fuzzy zoeken op nickname-->
-  <label>Nickname: </label>
-  <input type="text" id="nicknameSearch" placeholder="Zoek op nickname...">
-  <!--geboortejaar range zoeken-->
-  <formgroup>
-      <legend>Leeftijd</legend>
-      <label>Min geboortejaar</label><input type="text" id="minGeboorte">
-      <label>Max geboortejaar</label><input type="text" id="maxGeboorte">
-  </formgroup>
-  <!--lengte range zoeken-->
-  <formgroup>
-    <legend>Lengte</legend>
-    <label>Min</label><input type="number" id="minGrootte" placeholder="Min lengte in cm">
-    <label>Max</label><input type="number" id="maxGrootte" placeholder="Max lengte in cm">
-  </formgroup>
-  <!--zoeken op gewicht en operator-->
-  <formgroup>
-      <legend>Gewicht</legend>
+      <h5>Nickname</h5>
+    </td>
+    <td>
+      <input type="text" id="nicknameSearch" placeholder="Zoek op nickname...">
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h5>Geslacht</h5>   
+    </td>
+    <td>
+      <select id="input" class="api_demo_param_chb">
+        <option value="%" selected="">alle geslachten</option>
+        <option>v</option>
+        <option>m</option>
+        <option>x</option>
+        <option>%</option>
+      </select>
+    </td>
+  </tr>
+
+  <tr >
+    <td>
+      <h5>Leeftijd</h5>
+    </td>
+    <td>
+      <input type="text" placeholder="min GeboorteJaar" id="minGeboorte">
+      <input type="text" placeholder="max GeboorteJaar" id="maxGeboorte">
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h5>Lengte</h5>
+    </td>
+    <td>
+      <input type="number" id="minGrootte" placeholder="Min lengte in cm">
+      <input type="number" id="maxGrootte" placeholder="Max lengte in cm">
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h5>Gewicht</h5>
+    </td>
+    <td>
       <select id="operatorGewicht"> 
-        <option value="gt">Groter dan</option>
-        <option value="st">Kleiner dan</option>
+        <option value="gt">Meer dan</option>
+        <option value="st">Minder dan</option>
       </select>
       <input type="number" id="gewicht" placeholder="gewicht in kg">
-  </formgroup>
-  <!--fuzzy zoeken op oogkleur en haarkleur-->
-  <formgroup>
-    <legend>Oog/haarkleur</legend>
-    <label>Oogkleur</label>
-    <select id="oogkleur">
-      <option value="%bruin%">Bruin</option>
-      <option value="%blauw%">Blauw</option>
-      <option value="%groen%">Groen</option>
-      <option value="%amber%">Amber</option>
-      <option value="%hazelnoot%">Hazelnoot</option>
-    </select>
-    <label>Haarkleur</label>
-    <input type="text" id="haarkleur" placeholder="vul een haarkleur in">
-  </formgroup>
-<button type="button" id="zoekknop">Zoeken</button>
+    </td>
+  </tr>
 
+  <!--fuzzy zoeken op oogkleur en haarkleur-->
+  <tr>
+    <td>
+      <h5>Oogkleur</h5>
+    </td>
+    <td>
+      <select id="oogkleur">
+        <option value="%bruin%">Bruin</option>
+        <option value="%blauw%">Blauw</option>
+        <option value="%groen%">Groen</option>
+        <option value="%amber%">Amber</option>
+        <option value="%hazelnoot%">Hazelnoot</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h5>Haarkleur</h5>
+    </td>
+    <td>
+      <input type="text" id="haarkleur" placeholder="vul een haarkleur in">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="button" id="zoekknop">Zoeken</button>
+    </td>
+  </tr>
+</table>
 <br><br>
 <div id="resultaat">
 </div>
