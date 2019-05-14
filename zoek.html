@@ -238,12 +238,22 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
               let maand = data[i].geboortedatum.slice(6, 7);
               let dag = data[i].geboortedatum.slice(8, 9);
               bepaalSterrenbeeld(maand, dag);
+            let fotoNaam = data[i].foto
+              let urlFoto = "https://scrumserver.tenobe.org/scrum/img/" + fotoNaam
+              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id
+              + "<img width='20px' height='20px' src='https://www.astrology-zodiac-signs.com/images/aries.jpg'>"
+
+              // url + naam foto   https://scrumserver.tenobe.org/scrum/img/   + varfotonaam
+              + "<img width='20px' height='20px' src='" + urlFoto + "'>"
+
+              + "</a>"; // alleen nicknames worden getoond
               eResultaat.innerHTML += "<br>"
           }
       })
       .catch(function (error) { console.log(error); });
 }); // EINDE ZOEKKNOP LISTENER
 
+//functie om sterrenbeeld te bepalen
 function bepaalSterrenbeeld(maand, dag){
   let sterrenbeelden = [
   "nvt", ["steenbok", 20], ["waterman",19], ["vissen", 20], ["ram", 20], ["stier", 20], ["tweeling", 21], ["kreeft", 22], ["leeuw", 22], ["maagd", 22], ["weegschaal", 22], ["schorpioen", 21], ["boogschutter", 21]
