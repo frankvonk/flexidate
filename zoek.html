@@ -52,6 +52,11 @@
     border-bottom: 1px dashed rgba(200,250,250,0.5);
   }
 
+  input,button{
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+
    
 </style>
 <body>
@@ -94,7 +99,6 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
-<form method="GET">
 <table class="tabel">
   <tr>
     <td>
@@ -121,7 +125,7 @@
     </td>
   </tr>
 
-  <tr >
+  <tr>
     <td>
       <h5>Leeftijd</h5>
     </td>
@@ -161,12 +165,12 @@
     </td>
     <td>
       <select id="oogkleur">
+        <option value="" selected>Kies Oogkleur</option>
         <option value="%bruin%">Bruin</option>
         <option value="%blauw%">Blauw</option>
         <option value="%groen%">Groen</option>
         <option value="%amber%">Amber</option>
-        <option value="%hazelnoot%">Hazelnoot</option>
-      </select>
+        <option value="%hazelnoot%">Hazelnoot</option> </select>
     </td>
   </tr>
   <tr>
@@ -179,7 +183,7 @@
   </tr>
   <tr>
     <td>
-      <button type="button" id="zoekknop">Zoeken</button>
+      <button type="submit" id="zoekknop">Zoeken</button>
     </td>
   </tr>
 </table>
@@ -188,7 +192,11 @@
 <div id="resultaat">
 </div>
 
+
 <script>
+let sterrenbeelden = [
+  "nvt", "Steenbok", "Waterman", "Vissen", "Ram", "Stier", "Tweeling", "Kreeft", "Leeuw", "Maagd", "Weegschaal", "Schorpioen", "Boogschutter"
+]
 let eResultaat = document.getElementById('resultaat');
 var rooturl = "https://scrumserver.tenobe.org/scrum/api";
 
@@ -203,35 +211,40 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       let oogkleur = document.getElementById('oogkleur').value;
       let haarkleur = document.getElementById('haarkleur').value;
       let nickname = document.getElementById('nicknameSearch').value;
-      let page=1;
-      let pageSize=5;
+      //let page=1;
+      //let pageSize=5;
       let url= rooturl+'/profiel/search.php?sexe='+geslacht;
 
       //url GET opbouw
       url+='&grootteOperator=range&rangeMinGrootte='+ rangeMinGrootte +'&rangeMaxGrootte='+ rangeMaxGrootte;
-      url+='&geboortedatumOperator=range&rangeMinGeboortedatum='+ rangeMinGeboortedatum +'-01-01&rangeMaxGeboortedatum='+ rangeMaxGeboortedatum + '-01-01';
+      if(rangeMinGeboortedatum || rangeMaxGrootte){
+        url+='&geboortedatumOperator=range&rangeMinGeboortedatum='+ rangeMinGeboortedatum +'-01-01&rangeMaxGeboortedatum='+ rangeMaxGeboortedatum + '-01-01';
+      }
       url+='&gewicht='+ gewicht + '&gewichtOperator='+ gewichtOperator;
       url+='&oogkleur='+ oogkleur + '&haarkleur=%' + haarkleur + '%&nickname=%'+ nickname + '%';
 
-      url+= '&page='+page+'&pageSize='+pageSize;
+      //url+= '&page='+page+'&pageSize='+pageSize;
 
-      
                 
 
       fetch(url)
       .then(function (resp)   { return resp.json(); })
       .then(function (data)   { 
           console.log(data);  
+          console.log(url);
               eResultaat.innerHTML = "";
           // loop met het resultraat
           for(i=0;i<data.length;i++){
-
               eResultaat.innerHTML += data[i].nickname; // alleen nicknames worden getoond
               eResultaat.innerHTML += "<br>"
           }
       })
       .catch(function (error) { console.log(error); });
 }); // EINDE ZOEKKNOP LISTENER
+
+function bepaalSterrenbeeld(maand, dag){
+  
+}
 
 </script>
 

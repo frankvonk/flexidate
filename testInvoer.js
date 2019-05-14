@@ -1,5 +1,5 @@
 
-function uploadPicture(base64String) {
+function uploadPicture(base64String) { // Foto uploaden naar databank /img
     console.log('     • Foto wordt doorgestuurd naar de API.');
     let foto = document.getElementById('foto').value;
     let naam = foto.slice(12);
@@ -22,13 +22,12 @@ function uploadPicture(base64String) {
 
     console.log(data);
 
-
     fetch(request)
         .then(function (resp) {                     return resp.json(); })
         .then(function (data) {
             console.log('     ==> OK (Foto te vinden op url = ' + data.fileURL + ')');
             console.log('     • Foto inladen in IMG');
-            maakProfiel(data.fileName);
+            maakProfiel(data.fileName); // Profiel aanmaken
             //document.getElementById('uploadResult').src = data.fileURL;
             console.log('     ==> OK');
             console.log('==> Klaar');
@@ -46,31 +45,30 @@ document.getElementById('register').addEventListener('click', function (e) {
   }
   reader.readAsDataURL(file);
 
-    
+
         });// Einde knop
 
 function maakProfiel(splice){
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
 
-    let waardeGeslacht = document.getElementById('geslacht').value;
-    console.log(waardeGeslacht);
-    let charGeslacht = "o"
-    switch (waardeGeslacht) {
-      case "man":
-         charGeslacht="m";
-        break;
-      case "vrouw":
-        charGeslacht="v";
-        break;
-      default:
-      charGeslacht = "x";
-    }
-  console.log(charGeslacht);
-  console.log(typeof charGeslacht);
-  //let foto = document.getElementById('foto').value;
-  //let splice = foto.slice(12);
-        let data = {
+  //   let waardeGeslacht = document.getElementById('geslacht').value;
+  //   console.log(waardeGeslacht);
+  //   let charGeslacht = "o"
+  //   switch (waardeGeslacht) {
+  //     case "man":
+  //        charGeslacht="m";
+  //       break;
+  //     case "vrouw":
+  //       charGeslacht="v";
+  //       break;
+  //     default:
+  //     charGeslacht = "x";
+  //   }
+  // console.log(charGeslacht);
+  // console.log(typeof charGeslacht);
+
+        let data = { // Gegevens van formulier in databank steken
             familienaam: document.getElementById('achternaam').value,
             voornaam: document.getElementById('voornaam').value,
             geboortedatum:document.getElementById('geboortedatum').value,
@@ -99,10 +97,6 @@ function maakProfiel(splice){
             .catch(function (error) { console.log(error); });
 
 }
-
-
-
-
 
 //onthullen registratieform
 let onthulKnop = document.getElementById('onthullenRegistreer');
