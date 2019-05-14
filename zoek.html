@@ -227,7 +227,15 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
               eResultaat.innerHTML = "";
           // loop met het resultraat
           for(i=0;i<data.length;i++){
-              eResultaat.innerHTML += data[i].nickname; // alleen nicknames worden getoond
+            let fotoNaam = data[i].foto
+              let urlFoto = "https://scrumserver.tenobe.org/scrum/img/" + fotoNaam
+              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id
+              + "<img width='20px' height='20px' src='https://www.astrology-zodiac-signs.com/images/aries.jpg'>"
+
+              // url + naam foto   https://scrumserver.tenobe.org/scrum/img/   + varfotonaam
+              + "<img width='20px' height='20px' src='" + urlFoto + "'>"
+
+              + "</a>"; // alleen nicknames worden getoond
               eResultaat.innerHTML += "<br>"
           }
       })
