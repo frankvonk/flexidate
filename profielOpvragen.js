@@ -19,7 +19,7 @@ fetch(url)
   eGegeven = document.getElementById('nickname');
   eGegeven.innerHTML = data.nickname;
   eGegeven = document.getElementById('foto');
-  eGegeven.setAttribute("src",fotoUrl);
+  eGegeven.setAttribute("src",fotoUrl + data.foto);
   eGegeven = document.getElementById('beroep');
   eGegeven.innerHTML = data.beroep;
   eGegeven = document.getElementById('haarkleur');

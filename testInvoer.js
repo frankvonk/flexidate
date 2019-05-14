@@ -20,6 +20,9 @@ function uploadPicture(base64String) {
         })
     });
 
+    console.log(data);
+
+
     fetch(request)
         .then(function (resp) {                     return resp.json(); })
         .then(function (data) {
