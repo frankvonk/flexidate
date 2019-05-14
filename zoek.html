@@ -52,10 +52,6 @@
     border-bottom: 1px dashed rgba(200,250,250,0.5);
   }
 
-  input[type=""]{
-
-  }
-
    
 </style>
 <body>
@@ -98,6 +94,7 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
+<form method="GET">
 <table class="tabel">
   <tr>
     <td>
@@ -186,6 +183,7 @@
     </td>
   </tr>
 </table>
+
 <br><br>
 <div id="resultaat">
 </div>
@@ -205,6 +203,8 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       let oogkleur = document.getElementById('oogkleur').value;
       let haarkleur = document.getElementById('haarkleur').value;
       let nickname = document.getElementById('nicknameSearch').value;
+      let page=1;
+      let pageSize=5;
       let url= rooturl+'/profiel/search.php?sexe='+geslacht;
 
       //url GET opbouw
@@ -212,6 +212,10 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       url+='&geboortedatumOperator=range&rangeMinGeboortedatum='+ rangeMinGeboortedatum +'-01-01&rangeMaxGeboortedatum='+ rangeMaxGeboortedatum + '-01-01';
       url+='&gewicht='+ gewicht + '&gewichtOperator='+ gewichtOperator;
       url+='&oogkleur='+ oogkleur + '&haarkleur=%' + haarkleur + '%&nickname=%'+ nickname + '%';
+
+      url+= '&page='+page+'&pageSize='+pageSize;
+
+      
                 
 
       fetch(url)
