@@ -5,6 +5,8 @@ console.log(profielId);
 let url=' https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id='+profielId;
 let fotoUrl = "https://scrumserver.tenobe.org/scrum/img/";
 
+
+
 fetch(url)
 .then(function (resp)   { return resp.json(); })
 .then(function (data)   { console.log(data);
