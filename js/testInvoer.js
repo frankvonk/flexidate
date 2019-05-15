@@ -7,7 +7,7 @@ function uploadPicture(base64String) { // Foto uploaden naar databank /img
     let foto = document.getElementById('foto').value;
     let naam = foto.slice(12);
     let afbeelding = base64String;
-
+ 
     let url = 'https://scrumserver.tenobe.org/scrum/api/image/upload.php';
 
     let data = {
@@ -67,8 +67,8 @@ document.getElementById('register').addEventListener('click', function (e) {
         maakProfiel(stockFoto);
     }
 
-    
-	
+
+
 
 
         });// Einde knop
