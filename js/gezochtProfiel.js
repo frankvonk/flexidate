@@ -6,7 +6,6 @@ profielId = urlGezochtProfiel.slice(pos+3);
 console.log(profielId);
 
 
-
 let url=' https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id='+profielId;
 let fotoUrl = "https://scrumserver.tenobe.org/scrum/img/";
 
@@ -45,9 +44,6 @@ switch(data.sexe){
   geslacht = "XXX"
 
 }
-
   eGegeven.innerHTML = geslacht;
-
-
 })
 .catch(function (error) { console.log(error);});
