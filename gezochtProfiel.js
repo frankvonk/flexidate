@@ -7,11 +7,14 @@ console.log(profielId);
 
 
 // VOORBEREIDEND WERK OP STERRENBEELDEN
-let steenbok = "img/starsign/steenbok.png"
-            let waterman = "img/starsign/waterman.png"
-            let vissen = "img/starsign/vissen.png"
-            let ram = "img/starsign/ram.png"
-            let stier = "img/starsign/stier.png"
+
+
+
+          let steenbok = "img/starsign/steenbok.png"
+          let waterman = "img/starsign/waterman.png"
+          let vissen = "img/starsign/vissen.png"
+          let ram = "img/starsign/ram.png"
+          let stier = "img/starsign/stier.png"
             let tweeling = "img/starsign/tweeling.png"
             let kreeft = "img/starsign/kreeft.png"
             let leeuw = "img/starsign/leeuw.png"
@@ -21,8 +24,9 @@ let steenbok = "img/starsign/steenbok.png"
             let boogschutter = "img/starsign/boogschutter.png"
 
 
-document.getElementById('sterrenbeeld').innerHTML = "<img width='200px' src='" + schorpioen + "'>";
-
+/*
+document.getElementById('sterrenbeeld').innerHTML = "<img width='75px' src='" + schorpioen + "'>";
+*/
 
 
 
@@ -36,6 +40,7 @@ fetch(url)
   eGegeven.innerHTML = data.nickname;
   eGegeven = document.getElementById('foto');
   eGegeven.setAttribute("src",fotoUrl + data.foto);
+  /*  */
   eGegeven = document.getElementById('beroep');
   eGegeven.innerHTML = data.beroep;
   eGegeven = document.getElementById('haarkleur');
