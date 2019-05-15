@@ -18,10 +18,8 @@
 <style>
     body, .page-content {
       background-image: url("img/pink-and-roses.jpg");
-      background-repeat: no-repeat;
+      background-repeat: repeat;
       background-position: fixed;
-      background-size: cover;
-      
     }
     nav{
       background-color: #4835d4;
@@ -43,9 +41,7 @@
     border-radius: 25px;
     /*width: 50%;*/
     margin: 0 auto;
-    padding: 15px;
-
-    
+    padding: 15px;  
   }
 
   tr{
@@ -56,7 +52,21 @@
       margin-top: 5px;
       margin-bottom: 5px;
   }
-
+#profiel {
+  float: left;
+  max-width: 30%; 
+  padding: 5px;
+  border: 2px solid #4815d4;
+  border-radius: 10px 10px 10px 10px;
+  margin: 50px;
+  background-color: aliceblue;
+  opacity: 0.9;
+}
+#profiel:hover {
+  text-decoration: none;
+  border-color: hotpink;
+  background-color: pink;
+}
    
 </style>
 <body>
@@ -221,10 +231,6 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       url+='&gewicht='+ gewicht + '&gewichtOperator='+ gewichtOperator;
       url+='&oogkleur='+ oogkleur + '&haarkleur=%' + haarkleur + '%&nickname=%'+ nickname + '%';
 
-      //url+= '&page='+page+'&pageSize='+pageSize;
-      //bepaalSterrenbeeld(1, 27);
-
-                
 
       fetch(url)
       .then(function (resp)   { return resp.json(); })
@@ -234,20 +240,29 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
               eResultaat.innerHTML = "";
           // loop met het resultraat
           for(i=0;i<data.length;i++){
-              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id + "</a>"; // alleen nicknames worden getoond
-              let maand = data[i].geboortedatum.slice(6, 7);
-              let dag = data[i].geboortedatum.slice(8, 9);
-              bepaalSterrenbeeld(maand, dag);
+            let geslachtPNG;
             let fotoNaam = data[i].foto
-              let urlFoto = "https://scrumserver.tenobe.org/scrum/img/" + fotoNaam
-              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id
-              + "<img width='20px' height='20px' src='https://www.astrology-zodiac-signs.com/images/aries.jpg'>"
+            let urlFoto = "https://scrumserver.tenobe.org/scrum/img/" + fotoNaam
+            // GENDERLOGO'S
+            if(data[i].sexe =='m'){geslachtPNG = "https://cdn.pixabay.com/photo/2012/04/25/00/54/male-41488_640.png"}
+            else if(data[i].sexe =='v'){geslachtPNG = "https://armscontrolcenter.org/wp-content/uploads/2018/03/2000px-Pink_Venus_symbol.svg_.png"}
+            else {geslachtPNG = "https://png.pngtree.com/svg/20161215/9c5d6d618b.svg"}
+            // STAR SIGNS URLS
+            let maand = data[i].geboortedatum.slice(6, 7);
+            let dag = data[i].geboortedatum.slice(8, 9);
+            let sterrenbeeld = bepaalSterrenbeeld(maand, dag);
+           
 
-              // url + naam foto   https://scrumserver.tenobe.org/scrum/img/   + varfotonaam
-              + "<img width='20px' height='20px' src='" + urlFoto + "'>"
+              eResultaat.innerHTML += "<a id='profiel' target='blank' href='gezochtProfiel.html?id=" + data[i].id + "'>" 
+              + data[i].nickname + "<br>id:" + data[i].id
+
+
+              + "<img width='100px' height='100px' src='" + urlFoto + "'>"
+              + "<img width='40px' src='" + geslachtPNG + "'>"
+              + "<img width='40px' src='img/starsign/" + sterrenbeeld + ".png'"
 
               + "</a>"; // alleen nicknames worden getoond
-              eResultaat.innerHTML += "<br>"
+//              eResultaat.innerHTML += "<br>"
           }
       })
       .catch(function (error) { console.log(error); });
@@ -262,10 +277,13 @@ function bepaalSterrenbeeld(maand, dag){
 
   if (dag <= sterrenbeelden[maand][1]){
     sterrenbeeld = sterrenbeelden[maand][0];
+  } else if(maand == 12){
+    sterrenbeeld = sterrenbeelden[1][0];
   } else {
     sterrenbeeld = sterrenbeelden[maand + 1][0];
   }
   console.log(sterrenbeeld);
+  return sterrenbeeld;
   
 }
 

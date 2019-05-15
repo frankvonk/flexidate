@@ -5,6 +5,27 @@ console.log("SEARCHPOS: " +  pos);
 profielId = urlGezochtProfiel.slice(pos+3);
 console.log(profielId);
 
+
+// VOORBEREIDEND WERK OP STERRENBEELDEN
+let steenbok = "img/starsign/steenbok.png"
+            let waterman = "img/starsign/waterman.png"
+            let vissen = "img/starsign/vissen.png"
+            let ram = "img/starsign/ram.png"
+            let stier = "img/starsign/stier.png"
+            let tweeling = "img/starsign/tweeling.png"
+            let kreeft = "img/starsign/kreeft.png"
+            let leeuw = "img/starsign/leeuw.png"
+            let maagd = "img/starsign/maagd.png"
+            let weegschaal = "img/starsign/weegschaal.png"
+            let schorpioen = "img/starsign/schorpioen.png"
+            let boogschutter = "img/starsign/boogschutter.png"
+
+
+document.getElementById('sterrenbeeld').innerHTML = "<img width='200px' src='" + schorpioen + "'>";
+
+
+
+
 let url=' https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id='+profielId;
 let fotoUrl = "https://scrumserver.tenobe.org/scrum/img/";
 
