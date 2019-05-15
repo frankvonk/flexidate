@@ -26,7 +26,7 @@ document.getElementById('loginbtn').addEventListener('click', function (e) { // 
     .then(function (data) {
       if (data.message == 'Authorized') { // Als het inloggen slaagt
         console.log("Reactie van backend API : Correcte gegevens");
-        localStorage.setItem('ProfielId',data.id);
+        localStorage.setItem('ProfielId', data.id);
         window.location.href = "profiel.html";
         console.log(data.id);
       } else { // Als het inloggen niet slaagt
