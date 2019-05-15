@@ -13,6 +13,7 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
    <link rel="stylesheet" type="text/css" href="css/navstyle.css">
+   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 </head>
 <style>
     body, .page-content {
@@ -28,6 +29,50 @@
 
     }
 
+    .logo{
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 125px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 50px;
+  /*float: center;*/
+  text-align: center;
+  text-decoration: underline;
+  background-color: rgba(200,150,175,0.5);
+  
+}
+
+.logo .uno{
+  color: #4835d4;
+  text-shadow: 2px 2px pink;
+}
+
+.logo .dos{
+  color: pink;
+  text-shadow: 2px 2px #4835d4;
+}
+
+.imgdiv{
+
+  width: 600px;
+  height: 400px;
+    position: relative;
+    border: 2px solid red;
+}
+
+.persoon{
+  position: relative;
+  width: 400px;
+  left: 50px;
+}
+
+.sterrenbeeld{
+ position: absolute;
+ right: 25px;
+ top: 150px;
+
+}
    
 </style>
 <body>
@@ -63,7 +108,25 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
       </form>
      -->
+     
   </div>
 </nav>
+
+<div class="logo">
+      <p><span class="uno">Work</span><span>in</span><span class="dos">Progress</span></p> <!-- Titel  -->
+    </div>
+<div class="imgdiv">
+    <img class="persoon" src="./img/pink-and-roses.jpg">
+    <img class="sterrenbeeld" src="./img/starsign/maagd.png">
+          
+             
+  </div>
+
+  <div class="imgdiv">
+    <img class="persoon" src="./img/pink-and-roses.jpg">
+    <img class="sterrenbeeld" src="./img/starsign/maagd.png">
+          
+             
+  </div>
 </body>
 </html>
