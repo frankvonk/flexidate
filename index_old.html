@@ -21,39 +21,8 @@
       background-repeat: no-repeat;
       background-position: fixed;
       background-size: cover;
+
     }
-    #messagebox{
-      width: 30%;
-      padding: 0 1em;
-      margin: 0 35%;
-      border: 2px solid hotpink;
-      border-radius: 10px 10px 10px 10px;
-      color: red;
-      background-color: whitesmoke;
-    }
-
-.logo{
-	width: 100%;
-	display: block;
-	position: absolute;
-	top: -20px;
-	font-family: 'Luckiest Guy', cursive;
-	font-size: 50px;
-	/*float: center;*/
-	text-align: center;
-	text-decoration: underline;
-
-}
-
-.logo .uno{
-	color: #4835d4;
-	text-shadow: 2px 2px pink;
-}
-
-.logo .dos{
-	color: pink;
-	text-shadow: 2px 2px #4835d4;
-}
 </style>
  <body class="form-v10">
 	<div class="page-content">
@@ -62,7 +31,7 @@
 		</div>
 		<div class="form-v10-content">
 			<form class="form-detail"> <!-- Formulier  -->
-        <h2 class="text-center">Welkom bij FlexiDate!</h2>
+				<h2 class="text-center">Welkom bij FlexiDate!</h2>
 				<div class="form-left">
 
 					<h2>Inloggen</h2>
@@ -71,7 +40,7 @@
 							<input type="text" name="aanmeldnaam" class="aanmeldnaam" id="aanmeldnaam" placeholder="nickname" required>
 						</div>
 						<div class="form-row">
-							<input type="password" name="wachtwoordinv" class="wachtwoordinv" id="wachtwoordinv" placeholder="wachtwoord" required>
+							<input type="text" name="wachtwoordinv" class="wachtwoordinv" id="wachtwoordinv" placeholder="wachtwoord" required>
 						</div>
 						<div class="form-row-last">
 							<input id="loginbtn" type="button" name="register" class="register"  value="Aanmelden" >
@@ -139,7 +108,7 @@
 							<input type="file" name="foto" class="foto" id="foto" placeholder="Foto">
 						</div>
 						<div class="form-checkbox">
-							<label class="container"><p>Ik accepteer de <a href="https://www.voorbeeld-office.com/voorbeeld-gebruiksovereenkomst.html" target="_blank" class="text">GebruikersOvereenkomst</a> van deze site.</p>
+							<label class="container"><p>Ik accepteer de <a href="#" class="text">GebruikersOvereenkomst</a> van deze site.</p>
 									<input type="checkbox" name="checkbox">
 									<span class="checkmark"></span>
 							</label>
@@ -152,10 +121,11 @@
 			</div>
 
 		</div>
-  </div>
+	</div>
 	<script src="formvalidation.js" charset="utf-8"></script>
 	<script src="testInvoer.js" charset="utf-8"></script>
 	<script src="authenticate.js" charset="utf-8"></script>
+	
 
 </body>
 </html>

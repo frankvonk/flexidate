@@ -1,3 +1,6 @@
+let bIsjuistFout = localStorage.getItem('profieljuistfout');
+
+if (bIsjuistFout == 'juist'){
 
 function uploadPicture(base64String) { // Foto uploaden naar databank /img
     console.log('     • Foto wordt doorgestuurd naar de API.');
@@ -74,22 +77,6 @@ function maakProfiel(splice){
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
 
-  //   let waardeGeslacht = document.getElementById('geslacht').value;
-  //   console.log(waardeGeslacht);
-  //   let charGeslacht = "o"
-  //   switch (waardeGeslacht) {
-  //     case "man":
-  //        charGeslacht="m";
-  //       break;
-  //     case "vrouw":
-  //       charGeslacht="v";
-  //       break;
-  //     default:
-  //     charGeslacht = "x";
-  //   }
-  // console.log(charGeslacht);
-  // console.log(typeof charGeslacht);
-
         let data = { // Gegevens van formulier in databank steken
             familienaam: document.getElementById('achternaam').value,
             voornaam: document.getElementById('voornaam').value,
@@ -119,6 +106,8 @@ function maakProfiel(splice){
             .catch(function (error) { console.log(error); });
 
 }
+
+} // einde if juist
 
 //onthullen registratieform
 let onthulKnop = document.getElementById('onthullenRegistreer');
