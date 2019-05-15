@@ -29,7 +29,7 @@ document.getElementById('register').addEventListener('click', function(e) {
 	// email
 	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(sEmail))
 	  {
-
+ 
 	  }else{
 		//alert("U heeft een foutief e-mail adres ingevoerd!")
 		bFormulierjuist = false;
