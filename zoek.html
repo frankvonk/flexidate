@@ -108,12 +108,6 @@
         <a class="nav-link" href="./index.html" id="logout">Uitloggen</a>
       </li>      
     </ul>
-    <!--
-     <form class="form-inline my-2 my-lg-0 bordrrr">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
-      </form>
-     -->
   </div>
 </nav>
 
@@ -267,7 +261,7 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
 
               eResultaat.innerHTML += "<a class='profiel' target='blank' href='gezochtProfiel.html?id=" + data[i].id + "'>" 
               + "<span class='center'>" + data[i].nickname + "</span><br>" 
-              + "<img width='100px' height='100px' src='" + urlFoto + "'>"
+              + "<img width='130px' height='130px' src='" + urlFoto + "'>"
               + "<img width='40px' src='" + geslachtPNG + "'>"
               + "<img width='40px' src='img/starsign/" + sterrenbeeld + ".png'"
 
@@ -298,6 +292,6 @@ function bepaalSterrenbeeld(maand, dag){
 }
 
 </script>
-<script src="uitloggen.js" charset="utf-8"></script>
+<script src="./js/uitloggen.js" charset="utf-8"></script>
 </body>
 </html>
