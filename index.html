@@ -155,48 +155,6 @@
 
 		</div>
   </div>
-  <script>
-    var eMessagebox = document.getElementById("messagebox");
-    var eBtnRegister = document.getElementById('register');  
-    eBtnRegister.addEventListener('click', function(){
-        eMessagebox.innerHTML = '';
-        let eErrorType;
-      if(document.getElementById("nickname").value == ""){
-        eErrorType = document.createTextNode('U moet een nickname kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("email").value == ""){
-        eErrorType = document.createTextNode('U moet een emailadres doorgeven.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("wachtwoord").value == ""){
-        eErrorType = document.createTextNode('U moet een wachtwoord kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("voornaam").value == ""){
-        eErrorType = document.createTextNode('U moet een voornaam kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("achternaam").value == ""){
-        eErrorType = document.createTextNode('U moet een achternaam kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("geboortedatum").value == ""){
-        eErrorType = document.createTextNode('U moet een geboortedatum kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-
-
-
-    }) // end of eventlistener on register button
-  
-  </script>
 	<script src="testInvoer.js" charset="utf-8"></script>
 	<script src="authenticate.js" charset="utf-8"></script>
 

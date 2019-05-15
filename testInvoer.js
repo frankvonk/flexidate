@@ -38,12 +38,34 @@ function uploadPicture(base64String) { // Foto uploaden naar databank /img
 document.getElementById('register').addEventListener('click', function (e) {
 
     let file = document.querySelector('input[type=file]').files[0];
-	  let reader = new FileReader();
-    reader.onloadend = function() {
-		console.log('RESULT', reader.result);
-		uploadPicture(reader.result);
-  }
-  reader.readAsDataURL(file);
+    if(file){
+        let reader = new FileReader();
+        reader.onloadend = function() {
+		    console.log('RESULT', reader.result);
+		    uploadPicture(reader.result);
+        }
+        reader.readAsDataURL(file);
+    } else {
+        let stockFoto;
+        let sexe = document.getElementById('geslacht').value;
+        switch(sexe){
+            case "m":
+                stockFoto = 'man_3.png';
+                break;
+            case "v":
+                stockFoto ='woman_3.png'
+                break;
+            case "x":
+                stockFoto = 'man_2.png'
+                break;
+            default:
+                stockFoto = 'man_3.png'
+        }
+        maakProfiel(stockFoto);
+    }
+
+    
+	
 
 
         });// Einde knop
