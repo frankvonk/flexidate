@@ -1,23 +1,3 @@
-let login = document.getElementById('loginbtn');
-login.addEventListener("click", validatie_inloggen);
-
-function validatie_inloggen() {
-      
-         if( document.inloggen.aanmeldnaam.value == "" ) {
-            alert( "Geef a.u.b. uw nickname op!" );
-            document.inloggen.aanmeldnaam.focus() ;
-            return false;
-         }
-         if( document.inloggen.wachtwoordinv.value == "" ) {
-            alert( "Geef a.u.b. uw wachtwoord op!" );
-            document.inloggen.wachtwoordinv.focus() ;
-            return false;
-         }
-         return( true );
-      }
-
-
-
 // validatie van de inschrijvingsvelden
 
 document.getElementById('register').addEventListener('click', function(e) {
@@ -35,51 +15,51 @@ document.getElementById('register').addEventListener('click', function(e) {
 	let sBeroep = document.getElementById('beroep').value;
 	//let sFoto = document.getElementById('foto').value;
 	//let sGebruikersovereenkomst = document.getElementById('gebruikersovereenkomst').value;
-	
+
 	// declaraties
 	let bFormulierjuist = true;
 	let sMessage = '';
-	
+
 	// nickname
 	if (sNickname == ''){
 		bFormulierjuist = false;
 		sMessage += 'Nickname werd niet ingegeven\n';
 	}
-	
+
 	// email
 	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(sEmail))
 	  {
-		
+
 	  }else{
 		//alert("U heeft een foutief e-mail adres ingevoerd!")
 		bFormulierjuist = false;
 		sMessage += 'E-mail adres is niet correct\n';
 	  }
-	  
+
 	// wachtwoord
 	if (sWachtwoord == ''){
 		bFormulierjuist = false;
 		sMessage += 'Wachtwoord werd niet ingegeven\n';
 	}
-    
+
     // voornaam
 	if (sVoornaam == ''){
 		bFormulierjuist = false;
 		sMessage += 'Voornaam werd niet ingegeven\n';
 	}
-	
+
 	// achternaam
 	if (sAchternaam == ''){
 		bFormulierjuist = false;
 		sMessage += 'Achternaam werd niet ingegeven\n';
 	}
-	
+
 	// geslacht
 	if (sGeslacht == 'geslacht'){
 		bFormulierjuist = false;
 		sMessage += 'Geslacht werd niet ingegeven\n';
 	}
-	
+
 	// geboortedatum
 	var datum = new Date();
 	datum.setFullYear(datum.getFullYear()-18);
@@ -101,8 +81,8 @@ document.getElementById('register').addEventListener('click', function(e) {
 	sMessage += 'Leeftijd moet ministens 18 jaar zijn\n';
 
 	}
-	
-	
+
+
 	// gewicht
 	if (sGewicht < 30 || sGewicht > 500){
 		bFormulierjuist = false;
@@ -113,7 +93,7 @@ document.getElementById('register').addEventListener('click', function(e) {
 		sMessage += 'Gewicht is geen getal\n';
 		console.log('Gewicht is geen getal');
 	}*/
-	
+
 	// grootte
 	if (sGrootte < 130 || sGrootte > 250){
 		bFormulierjuist = false;
@@ -124,34 +104,32 @@ document.getElementById('register').addEventListener('click', function(e) {
 		sMessage += 'Grootte is geen getal\n';
 		console.log('Grootte is geen getal');
 	}*/
-	
+
 	// haarkleur
 	if (sHaarkleur == ''){
 		bFormulierjuist = false;
 		sMessage += 'Haarkleur werd niet ingegeven\n';
 	}
-	
+
 	// beroep
 	if (sBeroep == ''){
 		bFormulierjuist = false;
 		sMessage += 'Beroep werd niet ingegeven\n';
 	}
-	
-	
+
+
 	//var eBoodschap = document.getElementById('foutboodschap');
 	//eBoodschap.innerHTML = sMessage;
 
-	
+
 	if (bFormulierjuist){
 		localStorage.setItem('profieljuistfout', 'juist');
-		
+
 	}else{
 		localStorage.setItem('profieljuistfout', 'fout');
 		alert('Het profiel werd niet aangemaakt. Reden: \n' + sMessage);
 		console.log('Het profiel werd niet aangemaakt. Reden: ' + sMessage);
 		console.log('Boolean: ' + bFormulierjuist);
 	}
-	
+
 });	// einde knop register
-
-
