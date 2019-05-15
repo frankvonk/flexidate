@@ -110,7 +110,7 @@ document.getElementById('register').addEventListener('click', function(e) {
 		bFormulierjuist = false;
 		sMessage += 'Haarkleur werd niet ingegeven\n';
 	}
-
+ 
 	// beroep
 	if (sBeroep == ''){
 		bFormulierjuist = false;
