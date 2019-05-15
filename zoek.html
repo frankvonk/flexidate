@@ -18,10 +18,8 @@
 <style>
     body, .page-content {
       background-image: url("img/pink-and-roses.jpg");
-      background-repeat: no-repeat;
+      background-repeat: repeat;
       background-position: fixed;
-      background-size: cover;
-      
     }
     nav{
       background-color: #4835d4;
@@ -43,9 +41,7 @@
     border-radius: 25px;
     /*width: 50%;*/
     margin: 0 auto;
-    padding: 15px;
-
-    
+    padding: 15px;  
   }
 
   tr{
@@ -56,7 +52,21 @@
       margin-top: 5px;
       margin-bottom: 5px;
   }
-
+#profiel {
+  float: left;
+  max-width: 30%; 
+  padding: 5px;
+  border: 2px solid #4815d4;
+  border-radius: 10px 10px 10px 10px;
+  margin: 50px;
+  background-color: aliceblue;
+  opacity: 0.9;
+}
+#profiel:hover {
+  text-decoration: none;
+  border-color: hotpink;
+  background-color: pink;
+}
    
 </style>
 <body>
@@ -99,7 +109,6 @@
 <!-- BEGIN PAGE -->
 
 <!-- zoeken op geslacht -->
-
 <table class="tabel">
   <tr>
     <td>
@@ -188,12 +197,14 @@
     </td>
   </tr>
 </table>
+
 <br><br>
 <div id="resultaat">
 </div>
 
 
 <script>
+
 let eResultaat = document.getElementById('resultaat');
 var rooturl = "https://scrumserver.tenobe.org/scrum/api";
 
@@ -208,6 +219,8 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       let oogkleur = document.getElementById('oogkleur').value;
       let haarkleur = document.getElementById('haarkleur').value;
       let nickname = document.getElementById('nicknameSearch').value;
+      //let page=1;
+      //let pageSize=5;
       let url= rooturl+'/profiel/search.php?sexe='+geslacht;
 
       //url GET opbouw
@@ -217,7 +230,7 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
       }
       url+='&gewicht='+ gewicht + '&gewichtOperator='+ gewichtOperator;
       url+='&oogkleur='+ oogkleur + '&haarkleur=%' + haarkleur + '%&nickname=%'+ nickname + '%';
-                
+
 
       fetch(url)
       .then(function (resp)   { return resp.json(); })
@@ -227,12 +240,57 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
               eResultaat.innerHTML = "";
           // loop met het resultraat
           for(i=0;i<data.length;i++){
-              eResultaat.innerHTML += "<a href='gezochtProfiel.html?id=" + data[i].id + "'>" + data[i].nickname + " id:" + data[i].id + "</a>"; // alleen nicknames worden getoond
-              eResultaat.innerHTML += "<br>"
+            let geslachtPNG;
+            let fotoNaam = data[i].foto
+            let urlFoto = "https://scrumserver.tenobe.org/scrum/img/" + fotoNaam
+            // GENDERLOGO'S
+            if(data[i].sexe =='m'){geslachtPNG = "https://cdn.pixabay.com/photo/2012/04/25/00/54/male-41488_640.png"}
+            else if(data[i].sexe =='v'){geslachtPNG = "https://armscontrolcenter.org/wp-content/uploads/2018/03/2000px-Pink_Venus_symbol.svg_.png"}
+            else {geslachtPNG = "https://png.pngtree.com/svg/20161215/9c5d6d618b.svg"}
+            // STAR SIGNS URLS IN VARIABELEN
+            let steenbok = "img/starsign/steenbok.png"
+            let waterman = "img/starsign/waterman.png"
+            let vissen = "img/starsign/vissen.png"
+            let ram = "img/starsign/ram.png"
+            let stier = "img/starsign/stier.png"
+            let tweeling = "img/starsign/tweeling.png"
+            let kreeft = "img/starsign/kreeft.png"
+            let leeuw = "img/starsign/leeuw.png"
+            let maagd = "img/starsign/maagd.png"
+            let weegschaal = "img/starsign/weegschaal.png"
+            let schorpioen = "img/starsign/schorpioen.png"
+            let boogschutter = "img/starsign/boogschutter.png"
+
+              eResultaat.innerHTML += "<a id='profiel' target='blank' href='gezochtProfiel.html?id=" + data[i].id + "'>" 
+              + data[i].nickname + "<br>id:" + data[i].id
+
+
+              + "<img width='100px' height='100px' src='" + urlFoto + "'>"
+              + "<img width='40px' src='" + geslachtPNG + "'>"
+              + "<img width='40px' src='" + schorpioen + "'>"
+
+              + "</a>"; // alleen nicknames worden getoond
+//              eResultaat.innerHTML += "<br>"
           }
       })
       .catch(function (error) { console.log(error); });
 }); // EINDE ZOEKKNOP LISTENER
+
+//functie om sterrenbeeld te bepalen
+function bepaalSterrenbeeld(maand, dag){
+  let sterrenbeelden = [
+  "nvt", ["steenbok", 20], ["waterman",19], ["vissen", 20], ["ram", 20], ["stier", 20], ["tweeling", 21], ["kreeft", 22], ["leeuw", 22], ["maagd", 22], ["weegschaal", 22], ["schorpioen", 21], ["boogschutter", 21]
+  ];
+  let sterrenbeeld;
+
+  if (dag <= sterrenbeelden[maand][1]){
+    sterrenbeeld = sterrenbeelden[maand][0];
+  } else {
+    sterrenbeeld = sterrenbeelden[maand + 1][0];
+  }
+  console.log(sterrenbeeld);
+  
+}
 
 </script>
 

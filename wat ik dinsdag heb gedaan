@@ -1,0 +1,22 @@
+Hey everybody..
+
+in zoek.html =
+Ik heb de zoekresultaten opgepimpt met fotos van de dates en gender tekens. 
+ook staat hier al code voor sterrentekens te laten zien als dat berekend kan worden (of je wist die lijnen gewoon).
+als je op een zoekertje klikt opent deze in een nieuw tablad.
+
+in gezochtprofiel.js =
+Heb ik dezelfde code gezet voor de sterrenbeelden.
+in gezochtprofiel.html =
+heb ik een div id='sterrenbeeld'  geplaatst waar nu een afbeelding te zien is.
+het berekenen van welk sterrenbeeld het is moet nog gebeuren.
+
+in index.html = 
+een simpele client-side validatie.
+een div id='messagebox' en van onderen in de html een script om te kijken of een aantal velden niet leeg zijn.
+als een veld leeg is, zie je dit verschijnen op de pagina onder de header (dus geen popup).
+Dit is nog niet voor alle velden omdat leeftijd>18 nogal wat gedoe is. Maar dit aanpassen naar de andere velden
+is snel gedaan.
+
+Groeten & laat me maar weten wat ik nog kan doen 
+Chiao
