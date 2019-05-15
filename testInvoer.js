@@ -1,3 +1,6 @@
+let bIsjuistFout = localStorage.getItem('profieljuistfout');
+
+if (bIsjuistFout == 'juist'){
 
 function uploadPicture(base64String) { // Foto uploaden naar databank /img
     console.log('     • Foto wordt doorgestuurd naar de API.');
@@ -97,6 +100,8 @@ function maakProfiel(splice){
             .catch(function (error) { console.log(error); });
 
 }
+
+} // einde if juist
 
 //onthullen registratieform
 let onthulKnop = document.getElementById('onthullenRegistreer');
