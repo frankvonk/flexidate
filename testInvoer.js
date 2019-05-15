@@ -55,22 +55,6 @@ function maakProfiel(splice){
     const rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let url=rooturl+'/profiel/create.php';
 
-  //   let waardeGeslacht = document.getElementById('geslacht').value;
-  //   console.log(waardeGeslacht);
-  //   let charGeslacht = "o"
-  //   switch (waardeGeslacht) {
-  //     case "man":
-  //        charGeslacht="m";
-  //       break;
-  //     case "vrouw":
-  //       charGeslacht="v";
-  //       break;
-  //     default:
-  //     charGeslacht = "x";
-  //   }
-  // console.log(charGeslacht);
-  // console.log(typeof charGeslacht);
-
         let data = { // Gegevens van formulier in databank steken
             familienaam: document.getElementById('achternaam').value,
             voornaam: document.getElementById('voornaam').value,

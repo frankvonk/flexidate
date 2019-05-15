@@ -42,7 +42,7 @@
 	/*float: center;*/
 	text-align: center;
 	text-decoration: underline;
-	
+
 }
 
 .logo .uno{
@@ -63,8 +63,6 @@
 		<div class="form-v10-content">
 			<form class="form-detail"> <!-- Formulier  -->
         <h2 class="text-center">Welkom bij FlexiDate!</h2>
-        <div id="messagebox"></div>
-
 				<div class="form-left">
 
 					<h2>Inloggen</h2>
@@ -119,10 +117,10 @@
 
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<input type="text" name="gewicht" class="gewicht" id="gewicht" placeholder="Gewicht (in kg)" required>
+							<input type="number" name="gewicht" class="gewicht" id="gewicht" placeholder="Gewicht (in kg)" required>
 						</div>
 						<div class="form-row form-row-2">
-							<input type="text" name="grootte" class="grootte" id="grootte" placeholder="Grootte (in cm)" required>
+							<input type="number" name="grootte" class="grootte" id="grootte" placeholder="Grootte (in cm)" required>
 						</div>
 					</div>
 
@@ -155,48 +153,7 @@
 
 		</div>
   </div>
-  <script>
-    var eMessagebox = document.getElementById("messagebox");
-    var eBtnRegister = document.getElementById('register');  
-    eBtnRegister.addEventListener('click', function(){
-        eMessagebox.innerHTML = '';
-        let eErrorType;
-      if(document.getElementById("nickname").value == ""){
-        eErrorType = document.createTextNode('U moet een nickname kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("email").value == ""){
-        eErrorType = document.createTextNode('U moet een emailadres doorgeven.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("wachtwoord").value == ""){
-        eErrorType = document.createTextNode('U moet een wachtwoord kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("voornaam").value == ""){
-        eErrorType = document.createTextNode('U moet een voornaam kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("achternaam").value == ""){
-        eErrorType = document.createTextNode('U moet een achternaam kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-      if(document.getElementById("geboortedatum").value == ""){
-        eErrorType = document.createTextNode('U moet een geboortedatum kiezen.');
-        eMessagebox.appendChild(eErrorType);
-        eMessagebox.appendChild(document.createElement('br'));    
-      }
-
-
-
-    }) // end of eventlistener on register button
-  
-  </script>
+	<script src="formvalidation.js" charset="utf-8"></script>
 	<script src="testInvoer.js" charset="utf-8"></script>
 	<script src="authenticate.js" charset="utf-8"></script>
 
