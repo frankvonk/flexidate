@@ -52,20 +52,32 @@
       margin-top: 5px;
       margin-bottom: 5px;
   }
-#profiel {
+.profiel {
   float: left;
-  max-width: 30%; 
+  /*max-width: 30%; */
   padding: 5px;
   border: 2px solid #4815d4;
   border-radius: 10px 10px 10px 10px;
-  margin: 50px;
+  margin: 25px;
+  margin-right: 0px;
   background-color: aliceblue;
   opacity: 0.9;
+  width: 225px;
 }
-#profiel:hover {
+.profiel:hover {
   text-decoration: none;
   border-color: hotpink;
   background-color: pink;
+}
+.center{
+  display: block;
+  float: center;
+  text-align: center;
+ 
+}
+
+#resultaat{
+  padding: 50px;
 }
    
 </style>
@@ -261,10 +273,8 @@ document.getElementById('zoekknop').addEventListener('click', function (e) {
             let schorpioen = "img/starsign/schorpioen.png"
             let boogschutter = "img/starsign/boogschutter.png"
 
-              eResultaat.innerHTML += "<a id='profiel' target='blank' href='gezochtProfiel.html?id=" + data[i].id + "'>" 
-              + data[i].nickname + "<br>id:" + data[i].id
-
-
+              eResultaat.innerHTML += "<a class='profiel' target='blank' href='gezochtProfiel.html?id=" + data[i].id + "'>" 
+              + "<span class='center'>" + data[i].nickname + "</span><br>" 
               + "<img width='100px' height='100px' src='" + urlFoto + "'>"
               + "<img width='40px' src='" + geslachtPNG + "'>"
               + "<img width='40px' src='" + schorpioen + "'>"
